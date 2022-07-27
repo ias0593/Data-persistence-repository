@@ -6,17 +6,22 @@ using UnityEngine.UI;
 
 public class MainManager : MonoBehaviour
 {
+    public static MainManager Instance;
+
     public Brick BrickPrefab;
     public int LineCount = 6;
     public Rigidbody Ball;
 
     public Text ScoreText;
+    public Text ScoreNameText;
     public GameObject GameOverText;
     
     private bool m_Started = false;
     private int m_Points;
     
     private bool m_GameOver = false;
+
+    public Color PlayerColor;
 
     
     // Start is called before the first frame update
@@ -38,7 +43,16 @@ public class MainManager : MonoBehaviour
         }
     }
 
-    private void Update()
+
+    private void Awake()
+    {
+
+        
+    }
+
+
+
+private void Update()
     {
         if (!m_Started)
         {
@@ -73,4 +87,6 @@ public class MainManager : MonoBehaviour
         m_GameOver = true;
         GameOverText.SetActive(true);
     }
+
+
 }
